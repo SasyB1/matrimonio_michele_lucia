@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matrimonio Michele & Lucia</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-overlay"></div>
+
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Siete invitati al matrimonio di</p>
+        <h1>Michele <span>&</span> Lucia</h1>
+        <p class="date">12 Giugno 2027</p>
+        <p class="location">Roma, Italia</p>
+      </section>
+
+      <section class="card invitation-card">
+        <h2>Il nostro giorno speciale</h2>
+        <p>
+          Con grande gioia vi invitiamo a condividere con noi uno dei momenti
+          più belli della nostra vita.
+        </p>
+
+        <div class="event-details">
+          <div class="detail-box">
+            <h3>Cerimonia</h3>
+            <p>Ore 16:00</p>
+            <p>Chiesa da definire</p>
+          </div>
+
+          <div class="detail-box">
+            <h3>Ricevimento</h3>
+            <p>Ore 18:30</p>
+            <p>Location da definire</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card rsvp-card">
+        <h2>Conferma presenza</h2>
+        <p class="rsvp-subtitle">
+          Compila il modulo qui sotto per confermare la tua presenza.
+        </p>
+
+        <form id="rsvpForm" class="rsvp-form">
+          <div class="form-group">
+            <label for="fullName">Nome e cognome</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="Inserisci nome e cognome"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="attendance">Parteciperai?</label>
+            <select id="attendance" name="attendance" required>
+              <option value="">Seleziona</option>
+              <option value="Si">Sì</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="guests">Numero invitati</label>
+            <input
+              type="number"
+              id="guests"
+              name="guests"
+              min="1"
+              max="10"
+              value="1"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Intolleranze alimentari</label>
+            <div class="checkbox-grid">
+              <label class="checkbox-item">
+                <input type="checkbox" name="intolerances" value="Glutine" />
+                <span>Glutine</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" name="intolerances" value="Lattosio" />
+                <span>Lattosio</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input
+                  type="checkbox"
+                  name="intolerances"
+                  value="Frutta a guscio"
+                />
+                <span>Frutta a guscio</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" name="intolerances" value="Pesce" />
+                <span>Pesce</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" name="intolerances" value="Crostacei" />
+                <span>Crostacei</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" name="intolerances" value="Altro" />
+                <span>Altro</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Note aggiuntive</label>
+            <textarea
+              id="notes"
+              name="notes"
+              rows="4"
+              placeholder="Scrivi qui eventuali dettagli o richieste"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Invia conferma</button>
+
+          <p id="formMessage" class="form-message"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
