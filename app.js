@@ -36,7 +36,7 @@ if (rsvpForm && formMessage) {
         data = {};
       }
 
-      if (!response.ok) {
+      if (!response.ok || !data.ok) {
         throw new Error(data.error || "Errore durante il salvataggio");
       }
 
