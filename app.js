@@ -1,7 +1,8 @@
 const rsvpForm = document.getElementById("rsvpForm");
 const formMessage = document.getElementById("formMessage");
 
-const API_URL = "prova";
+const API_URL =
+  "https://matrimonio-michele-lucia-api.sasy2506.workers.dev/api/rsvp";
 
 if (rsvpForm && formMessage) {
   rsvpForm.addEventListener("submit", async function (event) {
