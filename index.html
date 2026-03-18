@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Matrimonio Michele & Lucia</title>
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
   </head>
   <body>
     <div class="background-overlay"></div>
@@ -126,6 +131,13 @@
               rows="4"
               placeholder="Scrivi qui eventuali dettagli o richieste"
             ></textarea>
+          </div>
+
+          <div class="turnstile-wrapper">
+            <div
+              class="cf-turnstile"
+              data-sitekey="0x4AAAAAACsyyPmLXlU2Xgiv"
+            ></div>
           </div>
 
           <button type="submit" class="submit-btn">Invia conferma</button>

@@ -11,6 +11,8 @@ if (rsvpForm && formMessage) {
     formMessage.textContent = "Invio in corso...";
 
     const formData = new FormData(rsvpForm);
+    const turnstileToken =
+      formData.get("cf-turnstile-response")?.toString().trim() || "";
 
     const payload = {
       fullName: formData.get("fullName")?.toString().trim() || "",
@@ -18,7 +20,13 @@ if (rsvpForm && formMessage) {
       guests: Number(formData.get("guests") || 1),
       intolerances: formData.getAll("intolerances"),
       notes: formData.get("notes")?.toString().trim() || "",
+      turnstileToken,
     };
+
+    if (!payload.turnstileToken) {
+      formMessage.textContent = "Completa la verifica anti-bot.";
+      return;
+    }
 
     try {
       const response = await fetch(API_URL, {
@@ -42,9 +50,17 @@ if (rsvpForm && formMessage) {
 
       formMessage.textContent = "Conferma inviata correttamente.";
       rsvpForm.reset();
+
+      if (window.turnstile) {
+        window.turnstile.reset();
+      }
     } catch (error) {
       formMessage.textContent =
         error.message || "Errore inatteso durante l'invio.";
+
+      if (window.turnstile) {
+        window.turnstile.reset();
+      }
     }
   });
 }

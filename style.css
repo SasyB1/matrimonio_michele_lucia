@@ -184,6 +184,12 @@ body {
   transform: scale(1.1);
 }
 
+.turnstile-wrapper {
+  margin: 22px 0 12px;
+  display: flex;
+  justify-content: center;
+}
+
 .submit-btn {
   width: 100%;
   border: none;
