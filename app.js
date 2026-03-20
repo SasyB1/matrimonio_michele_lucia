@@ -91,13 +91,21 @@ function setAttendance(value) {
     phoneInput.required = true;
   }
 
+  const yesInputs =
+    yesFields?.querySelectorAll("input, select, textarea") || [];
+
   if (value === "Si") {
     if (yesFields) {
       yesFields.classList.remove("d-none");
     }
 
+    yesInputs.forEach((el) => {
+      el.disabled = false;
+    });
+
     if (guestsInput) {
       guestsInput.required = true;
+
       if (!guestsInput.value || Number(guestsInput.value) < 1) {
         guestsInput.value = "1";
       }
@@ -107,10 +115,10 @@ function setAttendance(value) {
       yesFields.classList.add("d-none");
     }
 
-    if (guestsInput) {
-      guestsInput.required = false;
-      guestsInput.value = "0";
-    }
+    yesInputs.forEach((el) => {
+      el.disabled = true;
+      el.required = false;
+    });
 
     resetIntolerances();
   }
@@ -227,6 +235,13 @@ if (rsvpForm && formMessage) {
 
       if (intolerancesWrapper) {
         intolerancesWrapper.classList.add("d-none");
+      }
+
+      if (yesFields) {
+        yesFields.querySelectorAll("input, select, textarea").forEach((el) => {
+          el.disabled = false;
+          el.required = false;
+        });
       }
 
       resetIntolerances();
