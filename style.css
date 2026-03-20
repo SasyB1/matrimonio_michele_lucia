@@ -11,7 +11,7 @@ body {
 }
 
 body {
-  font-family: "Georgia", serif;
+  font-family: "Cormorant Garamond", serif;
   background: linear-gradient(135deg, #f8f1eb, #fdf8f3);
   color: #4b3832;
   min-height: 100vh;
@@ -19,7 +19,10 @@ body {
   overflow-x: hidden;
 }
 
-/* PAGINA REALE */
+/* =========================
+   BASE PAGINA
+   ========================= */
+
 .background-overlay {
   position: fixed;
   inset: 0;
@@ -43,131 +46,6 @@ body {
   max-width: 960px;
 }
 
-.hero {
-  padding-top: 3rem;
-  padding-bottom: 2rem;
-}
-
-.eyebrow {
-  font-size: 0.95rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #9c7c64;
-}
-
-.hero h1 {
-  font-size: 2.2rem;
-  font-weight: 500;
-  line-height: 1.15;
-}
-
-.hero h1 span {
-  color: #b58b6a;
-}
-
-.date {
-  font-size: 1.2rem;
-}
-
-.location {
-  font-size: 1rem;
-  color: #7d6555;
-}
-
-.custom-card {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(181, 139, 106, 0.18);
-  border-radius: 24px;
-  box-shadow: 0 12px 30px rgba(75, 56, 50, 0.08);
-  backdrop-filter: blur(6px);
-}
-
-.custom-card h2 {
-  font-size: 1.7rem;
-  color: #6d4c41;
-}
-
-.custom-card p {
-  line-height: 1.7;
-}
-
-.detail-box {
-  background: #fbf6f1;
-  border: 1px solid rgba(181, 139, 106, 0.2);
-  border-radius: 18px;
-  padding: 1.25rem 1rem;
-  text-align: center;
-}
-
-.detail-box h3 {
-  margin-bottom: 0.75rem;
-  color: #8d6e63;
-  font-size: 1.15rem;
-}
-
-.custom-input {
-  border: 1px solid #d8c4b6;
-  border-radius: 14px;
-  padding: 0.9rem 1rem;
-  font-size: 1rem;
-  background: #fffdfb;
-  color: #4b3832;
-  box-shadow: none;
-}
-
-.custom-input:focus {
-  border-color: #b58b6a;
-  box-shadow: 0 0 0 4px rgba(181, 139, 106, 0.12);
-}
-
-.form-label {
-  color: #5d4638;
-  margin-bottom: 0.5rem;
-}
-
-.checkbox-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #fbf6f1;
-  border: 1px solid rgba(181, 139, 106, 0.18);
-  border-radius: 14px;
-  padding: 12px 14px;
-  cursor: pointer;
-  min-height: 56px;
-}
-
-.checkbox-item input {
-  transform: scale(1.05);
-  margin: 0;
-}
-
-.submit-btn {
-  border: none;
-  border-radius: 16px;
-  padding: 15px 18px;
-  font-size: 1rem;
-  font-weight: 600;
-  background: linear-gradient(135deg, #b58b6a, #9c7c64);
-  color: white;
-  cursor: pointer;
-  transition:
-    transform 0.15s ease,
-    opacity 0.15s ease;
-}
-
-.submit-btn:hover {
-  transform: translateY(-1px);
-  opacity: 0.96;
-}
-
-.form-message {
-  min-height: 24px;
-  color: #6d4c41;
-  font-size: 0.96rem;
-}
-
-/* CONTENUTO SOTTO */
 .site-content {
   position: relative;
   z-index: 1;
@@ -186,7 +64,10 @@ body {
   transition: opacity 0.18s ease;
 }
 
-/* INTRO FULLSCREEN */
+/* =========================
+   INTRO BUSTA
+   ========================= */
+
 .invitation-intro {
   position: fixed;
   inset: 0;
@@ -224,7 +105,6 @@ body {
   background: transparent;
 }
 
-/* PANNELLI BUSTA */
 .envelope-panel {
   position: absolute;
   top: 0;
@@ -253,7 +133,6 @@ body {
   box-shadow: inset 10px 0 18px rgba(0, 0, 0, 0.018);
 }
 
-/* FIORI SUPERIORI + INFERIORI DIVISI CORRETTAMENTE */
 .envelope-left-floral,
 .envelope-right-floral {
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
@@ -267,7 +146,6 @@ body {
     linear-gradient(90deg, rgba(0, 0, 0, 0.008), rgba(255, 255, 255, 0.03));
 }
 
-/* BASE */
 .envelope-left-floral {
   background-position:
     left top,
@@ -284,7 +162,6 @@ body {
     center;
 }
 
-/* TEXTURE CARTA LEGGERA */
 .envelope-panel::before {
   content: "";
   position: absolute;
@@ -313,7 +190,6 @@ body {
   pointer-events: none;
 }
 
-/* TIMBRO IMMAGINE */
 .wax-seal {
   position: absolute;
   left: 50%;
@@ -353,7 +229,6 @@ body {
   filter: drop-shadow(0 12px 18px rgba(120, 83, 45, 0.16));
 }
 
-/* APERTURA RAPIDA */
 .intro-envelope.opened .envelope-left {
   transform: translateX(-108%);
   opacity: 0.78;
@@ -369,14 +244,569 @@ body {
   transform: translate(-50%, -50%) scale(0.9);
 }
 
-/* RESPONSIVE */
+/* =========================
+   PAGINA INVITO
+   ========================= */
+
+.invitation-page-single {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.invitation-fullsheet {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  border-radius: 0;
+  overflow: hidden;
+  background: linear-gradient(160deg, #fdfcf8 0%, #f9f5ef 60%, #faf8f2 100%);
+  border: none;
+  box-shadow: none;
+  padding: 38px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.invitation-top {
+  text-align: center;
+}
+
+.sheet-deco {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.22;
+}
+
+.sheet-deco-tl {
+  top: 18px;
+  left: 18px;
+  width: 90px;
+  height: 90px;
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      rgba(178, 203, 173, 0.42) 0 20%,
+      transparent 21%
+    ),
+    radial-gradient(
+      circle at 68% 18%,
+      rgba(178, 203, 173, 0.28) 0 18%,
+      transparent 19%
+    ),
+    radial-gradient(
+      circle at 12% 72%,
+      rgba(178, 203, 173, 0.22) 0 20%,
+      transparent 21%
+    );
+}
+
+.sheet-deco-tr {
+  top: 18px;
+  right: 18px;
+  width: 90px;
+  height: 90px;
+  background:
+    radial-gradient(
+      circle at 78% 20%,
+      rgba(232, 200, 74, 0.26) 0 18%,
+      transparent 19%
+    ),
+    radial-gradient(
+      circle at 52% 34%,
+      rgba(178, 203, 173, 0.18) 0 18%,
+      transparent 19%
+    ),
+    radial-gradient(
+      circle at 28% 18%,
+      rgba(232, 200, 74, 0.18) 0 16%,
+      transparent 17%
+    );
+}
+
+.sheet-deco-bl {
+  bottom: 18px;
+  left: 18px;
+  width: 92px;
+  height: 92px;
+  background:
+    radial-gradient(
+      circle at 10% 18%,
+      rgba(232, 200, 74, 0.18) 0 16%,
+      transparent 17%
+    ),
+    radial-gradient(
+      circle at 30% 64%,
+      rgba(178, 203, 173, 0.2) 0 22%,
+      transparent 23%
+    ),
+    radial-gradient(
+      circle at 74% 82%,
+      rgba(178, 203, 173, 0.12) 0 16%,
+      transparent 17%
+    );
+}
+
+.sheet-deco-br {
+  bottom: 18px;
+  right: 18px;
+  width: 92px;
+  height: 92px;
+  background:
+    radial-gradient(
+      circle at 24% 18%,
+      rgba(232, 200, 74, 0.18) 0 14%,
+      transparent 15%
+    ),
+    radial-gradient(
+      circle at 76% 66%,
+      rgba(178, 203, 173, 0.16) 0 20%,
+      transparent 21%
+    );
+}
+
+.invite-subtitle {
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #b2cbad;
+  text-align: center;
+  line-height: 1.8;
+  margin: 26px 0 18px;
+}
+
+.invite-name {
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: #b2cbad;
+  line-height: 1;
+  margin: 0;
+}
+
+.invite-name-bottom {
+  margin-top: -2px;
+}
+
+.invite-ampersand {
+  font-size: 2.4rem;
+  color: #b2cbad;
+  line-height: 1;
+  margin: 4px 0;
+}
+
+.invite-date-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px 0 8px;
+}
+
+.invite-date-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(178, 203, 173, 0.5));
+}
+
+.invite-date-line.right {
+  background: linear-gradient(to left, transparent, rgba(178, 203, 173, 0.5));
+}
+
+.invite-date-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px;
+}
+
+.invite-date-label {
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b2cbad;
+}
+
+.invite-date-diamond-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 82px;
+  height: 82px;
+  flex-shrink: 0;
+}
+
+.invite-date-diamond {
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  border: 1.2px solid rgba(178, 203, 173, 0.8);
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+.invite-date-day {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #b2cbad;
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+}
+
+.invite-date-year {
+  font-size: 0.55rem;
+  font-weight: 400;
+  letter-spacing: 1.2px;
+  color: #b2cbad;
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.invite-time {
+  font-size: 0.74rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: #b2cbad;
+  margin: 8px 0 18px;
+}
+
+.invite-location-text {
+  font-size: 0.64rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b2cbad;
+  text-align: center;
+  line-height: 1.9;
+  margin-bottom: 6px;
+}
+
+.invite-location-icon {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 16px;
+  color: #b2cbad;
+}
+
+.invite-location-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.location-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.location-link:hover {
+  transform: scale(1.06);
+  opacity: 0.9;
+}
+
+/* =========================
+   FORM
+   ========================= */
+
+.invitation-form-wrap {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding-top: 12px;
+}
+
+.invite-form-title {
+  font-size: 2rem;
+  text-align: center;
+  color: #b2cbad;
+  margin-bottom: 10px;
+}
+
+.invite-form-subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 0.4px;
+  color: #b2cbad;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.rsvp-form {
+  width: 100%;
+}
+
+.rsvp-row {
+  position: relative;
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 24px;
+}
+
+.rsvp-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.rsvp-question {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #b2cbad;
+  line-height: 1;
+  text-align: center;
+}
+
+.rsvp-options {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.rsvp-opt {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: #b2cbad;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  line-height: 1;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    color 0.18s ease;
+}
+
+.rsvp-opt:hover {
+  opacity: 0.82;
+  transform: translateY(-1px);
+}
+
+.rsvp-opt.active {
+  color: #93b88e;
+}
+
+.rsvp-opt:focus {
+  outline: none;
+}
+
+#commonFields,
+#yesFields {
+  margin-top: 8px;
+}
+
+.form-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #b2cbad;
+  margin-bottom: 0.5rem;
+}
+
+.custom-input {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.95rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(178, 203, 173, 0.38);
+  color: #6f8c6a;
+  padding: 0.9rem 1rem;
+  box-shadow: none;
+}
+
+.custom-input::placeholder {
+  color: rgba(111, 140, 106, 0.62);
+}
+
+.custom-input:focus {
+  border-color: #b2cbad;
+  box-shadow: 0 0 0 4px rgba(178, 203, 173, 0.18);
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(178, 203, 173, 0.28);
+  border-radius: 14px;
+  padding: 12px 14px;
+  cursor: pointer;
+  min-height: 54px;
+}
+
+.checkbox-item input {
+  transform: scale(1.05);
+  margin: 0;
+}
+
+.checkbox-item span {
+  font-size: 0.85rem;
+  color: #7da177;
+}
+
+.submit-btn {
+  border: none;
+  border-radius: 16px;
+  padding: 15px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #b2cbad, #93b88e);
+  color: white;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.96;
+}
+
+.form-message {
+  min-height: 24px;
+  color: #7da177;
+  font-size: 0.96rem;
+}
+
+/* =========================
+   GIFT FAB + POPUP IBAN
+   ========================= */
+
+.gift-fab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+}
+
+.gift-fab .gift-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #d3ca87, #b7ad63);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(183, 173, 99, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.gift-fab .gift-circle svg {
+  width: 26px;
+  height: 26px;
+  stroke: white;
+  fill: none;
+}
+
+.gift-fab .gift-circle:hover {
+  transform: translateY(-1px);
+}
+
+.gift-fab .gift-circle:focus-visible {
+  outline: 2px solid rgba(178, 203, 173, 0.45);
+  outline-offset: 4px;
+}
+
+.gift-fab .iban-popup {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  min-width: 260px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(178, 203, 173, 0.35);
+  border-radius: 18px;
+  padding: 16px 18px 14px;
+  box-shadow: 0 12px 30px rgba(75, 56, 50, 0.14);
+  z-index: 10000;
+  text-align: left;
+}
+
+.iban-popup-label {
+  font-size: 0.85rem;
+  color: #93b88e;
+  margin-bottom: 6px;
+}
+
+.iban-popup-value {
+  font-size: 1rem;
+  color: #6f8c6a;
+  word-break: break-word;
+  padding-right: 34px;
+}
+
+.copy-iban-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: #93b88e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.copy-iban-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.copy-iban-btn:hover {
+  background: rgba(178, 203, 173, 0.12);
+}
+
+.iban-copy-feedback {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: #7da177;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.iban-copy-feedback.visible {
+  opacity: 1;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
 @media (max-width: 767px) {
   .envelope-left-floral,
   .envelope-right-floral {
     background-size:
       200% auto,
-      /* fiori superiori */ 200% auto,
-      /* fiori inferiori */ 100% 100%,
+      200% auto,
+      100% 100%,
       100% 100%;
   }
 
@@ -403,13 +833,47 @@ body {
   }
 }
 
+@media (max-width: 575px) {
+  .rsvp-row {
+    margin-bottom: 20px;
+  }
+
+  .rsvp-question {
+    font-size: 1.8rem;
+  }
+
+  .rsvp-opt {
+    font-size: 1.3rem;
+  }
+
+  .gift-fab {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .gift-fab .gift-circle {
+    width: 50px;
+    height: 50px;
+  }
+
+  .gift-fab .gift-circle svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .gift-fab .iban-popup {
+    min-width: 220px;
+    right: 0;
+  }
+}
+
 @media (min-width: 768px) {
   .envelope-left-floral,
   .envelope-right-floral {
     background-size:
       200% auto,
-      /* fiori superiori */ 200% auto,
-      /* fiori inferiori */ 100% 100%,
+      200% auto,
+      100% 100%,
       100% 100%;
   }
 
@@ -434,18 +898,76 @@ body {
     height: 145px;
     top: 51.5%;
   }
+
+  .invitation-page-single {
+    padding: 0;
+  }
+
+  .invitation-fullsheet {
+    min-height: 100vh;
+    padding: 44px 42px 34px;
+    border-radius: 0;
+  }
+
+  .sheet-deco-tl,
+  .sheet-deco-tr,
+  .sheet-deco-bl,
+  .sheet-deco-br {
+    transform: scale(1.3);
+  }
+
+  .invite-subtitle {
+    font-size: 0.74rem;
+    letter-spacing: 3.4px;
+    margin-top: 30px;
+  }
+
+  .invite-name {
+    font-size: 5.2rem;
+  }
+
+  .invite-ampersand {
+    font-size: 3rem;
+  }
+
+  .invite-date-center {
+    gap: 14px;
+  }
+
+  .invite-date-label {
+    font-size: 0.72rem;
+    letter-spacing: 2.4px;
+  }
+
+  .invite-date-diamond-wrap {
+    width: 92px;
+    height: 92px;
+  }
+
+  .invite-date-diamond {
+    width: 76px;
+    height: 76px;
+  }
+
+  .invite-date-day {
+    font-size: 2.2rem;
+  }
+
+  .invite-time {
+    font-size: 0.78rem;
+  }
+
+  .invite-location-text {
+    font-size: 0.68rem;
+    letter-spacing: 2.2px;
+  }
+
+  .invite-form-title {
+    font-size: 2.3rem;
+  }
 }
 
 @media (min-width: 1300px) {
-  .envelope-left-floral,
-  .envelope-right-floral {
-    background-size:
-      200% auto,
-      200% auto,
-      100% 100%,
-      100% 100%;
-  }
-
   .envelope-left-floral {
     background-position:
       left top -200px,
@@ -463,22 +985,11 @@ body {
   }
 
   .wax-seal {
-    width: 145px;
-    height: 145px;
     top: 50.5%;
   }
 }
 
 @media (min-width: 1450px) {
-  .envelope-left-floral,
-  .envelope-right-floral {
-    background-size:
-      200% auto,
-      200% auto,
-      100% 100%,
-      100% 100%;
-  }
-
   .envelope-left-floral {
     background-position:
       left top -350px,
@@ -496,22 +1007,11 @@ body {
   }
 
   .wax-seal {
-    width: 145px;
-    height: 145px;
     top: 50.5%;
   }
 }
 
 @media (min-width: 1950px) {
-  .envelope-left-floral,
-  .envelope-right-floral {
-    background-size:
-      200% auto,
-      200% auto,
-      100% 100%,
-      100% 100%;
-  }
-
   .envelope-left-floral {
     background-position:
       left top -500px,
@@ -529,8 +1029,6 @@ body {
   }
 
   .wax-seal {
-    width: 145px;
-    height: 145px;
     top: 50.5%;
   }
 }

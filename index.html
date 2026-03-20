@@ -9,6 +9,10 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="style.css" />
 
@@ -43,173 +47,253 @@
     <div id="siteContent" class="site-content hidden-before-open">
       <div class="background-overlay"></div>
 
-      <main class="page container py-4 py-md-5">
-        <section class="hero text-center py-5">
-          <p class="eyebrow mb-3">Siete invitati al matrimonio di</p>
-          <h1 class="mb-3">Michele <span>&</span> Lucia</h1>
-          <p class="date mb-2">12 Giugno 2027</p>
-          <p class="location mb-0">Roma, Italia</p>
-        </section>
+      <main class="page invitation-page-single">
+        <section class="invitation-fullsheet">
+          <div class="sheet-deco sheet-deco-tl"></div>
+          <div class="sheet-deco sheet-deco-tr"></div>
+          <div class="sheet-deco sheet-deco-bl"></div>
+          <div class="sheet-deco sheet-deco-br"></div>
 
-        <section class="card custom-card invitation-card mt-4">
-          <div class="card-body p-4 p-md-5">
-            <h2 class="text-center mb-3">Il nostro giorno speciale</h2>
-            <p class="text-center mb-0">
-              Con grande gioia vi invitiamo a condividere con noi uno dei
-              momenti più belli della nostra vita.
+          <div class="invitation-top">
+            <p class="invite-subtitle">
+              Siamo felici di invitarvi al<br />nostro matrimonio
             </p>
 
-            <div class="row g-3 mt-4">
-              <div class="col-12 col-md-6">
-                <div class="detail-box h-100">
-                  <h3>Cerimonia</h3>
-                  <p class="mb-1">Ore 16:00</p>
-                  <p class="mb-0">Chiesa da definire</p>
+            <h1 class="invite-name">Michele</h1>
+            <div class="invite-ampersand">&amp;</div>
+            <h1 class="invite-name invite-name-bottom">Lucia</h1>
+
+            <div class="invite-date-wrap">
+              <div class="invite-date-line"></div>
+
+              <div class="invite-date-center">
+                <span class="invite-date-label">Lunedì</span>
+
+                <div class="invite-date-diamond-wrap">
+                  <div class="invite-date-diamond"></div>
+                  <span class="invite-date-day">15</span>
+                  <span class="invite-date-year">2026</span>
                 </div>
+
+                <span class="invite-date-label">Giugno</span>
               </div>
 
-              <div class="col-12 col-md-6">
-                <div class="detail-box h-100">
-                  <h3>Ricevimento</h3>
-                  <p class="mb-1">Ore 18:30</p>
-                  <p class="mb-0">Location da definire</p>
-                </div>
-              </div>
+              <div class="invite-date-line right"></div>
             </div>
-          </div>
-        </section>
 
-        <section class="card custom-card rsvp-card mt-4">
-          <div class="card-body p-4 p-md-5">
-            <h2 class="text-center mb-3">Conferma presenza</h2>
-            <p class="rsvp-subtitle text-center mb-4">
+            <p class="invite-time">ORE 10:30</p>
+
+            <p class="invite-location-text">
+              Clicca qui per scoprire dove si<br />terra la cerimonia
+            </p>
+            <a
+              class="invite-location-icon location-link"
+              href="https://www.google.com/maps/place/Parrocchia+Gesu'+Redentore/@40.7207783,14.5272309,17z/data=!3m1!4b1!4m6!3m5!1s0x133bbc4c5a4ef7bb:0xe60463919f9ee433!8m2!3d40.7207783!4d14.5272309!16s%2Fg%2F11b7q8m5g6?entry=ttu&g_ep=EgoyMDI2MDMxNy4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Apri la posizione su Google Maps"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-building-church"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 21l18 0" />
+                <path d="M10 21v-4a2 2 0 0 1 4 0v4" />
+                <path d="M10 5l4 0" />
+                <path d="M12 3l0 5" />
+                <path d="M6 21v-7m-2 2l8 -8l8 8m-2 -2v7" />
+              </svg>
+            </a>
+
+            <p class="invite-location-text">
+              Clicca qui per aprire la location del<br />ricevimento
+            </p>
+            <a
+              class="invite-location-icon location-link"
+              href="https://www.google.com/maps?q=Villa+Andrea+Paestum,+Via+Vecchia+Cilentana,+84047+Loc.+Giancesare,+Capaccio+SA&ftid=0x133957c214c41347:0xab005abd648bf5c8&entry=gps&shh=CAE&lucs=,94297699,94284511,94231188,94280568,47071704,94218641,94282134,94286869&g_ep=CAISEjI2LjExLjEuODgxMDA1NjQ2MBgAIIgnKkgsOTQyOTc2OTksOTQyODQ1MTEsOTQyMzExODgsOTQyODA1NjgsNDcwNzE3MDQsOTQyMTg2NDEsOTQyODIxMzQsOTQyODY4NjlCAklU&skid=758e4924-1e3d-4157-aa01-a640b716e980&g_st=ic"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Apri la posizione del ricevimento su Google Maps"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-tools-kitchen-2"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M19 3v12h-5c-.023 -3.681 .184 -7.406 5 -12m0 12v6h-1v-3m-10 -14v17m-3 -17v3a3 3 0 1 0 6 0v-3"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="invitation-form-wrap">
+            <h2 class="invite-form-title">Conferma presenza</h2>
+            <p class="invite-form-subtitle">
               Compila il modulo qui sotto per confermare la tua presenza.
+            </p>
+            <p class="invite-form-subtitle mb-2">
+              È gradita gentile conferma entro il 15-05-2026.
             </p>
 
             <form id="rsvpForm" class="rsvp-form">
-              <div class="mb-3">
-                <label for="fullName" class="form-label">Nome e cognome</label>
-                <input
-                  type="text"
-                  id="fullName"
-                  name="fullName"
-                  class="form-control custom-input"
-                  placeholder="Inserisci nome e cognome"
-                  required
-                />
-              </div>
-
-              <div class="mb-3">
-                <label for="attendance" class="form-label">Parteciperai?</label>
-                <select
-                  id="attendance"
-                  name="attendance"
-                  class="form-select custom-input"
-                  required
-                >
-                  <option value="">Seleziona</option>
-                  <option value="Si">Sì</option>
-                  <option value="No">No</option>
-                </select>
-              </div>
-
-              <div class="mb-3">
-                <label for="guests" class="form-label">Numero invitati</label>
-                <input
-                  type="number"
-                  id="guests"
-                  name="guests"
-                  class="form-control custom-input"
-                  min="1"
-                  max="10"
-                  value="1"
-                  required
-                />
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label d-block"
-                  >Intolleranze alimentari</label
-                >
-
-                <div class="row g-2">
-                  <div class="col-12 col-sm-6">
-                    <label class="checkbox-item w-100">
-                      <input
-                        type="checkbox"
-                        name="intolerances"
-                        value="Glutine"
-                      />
-                      <span>Glutine</span>
-                    </label>
-                  </div>
-
-                  <div class="col-12 col-sm-6">
-                    <label class="checkbox-item w-100">
-                      <input
-                        type="checkbox"
-                        name="intolerances"
-                        value="Lattosio"
-                      />
-                      <span>Lattosio</span>
-                    </label>
-                  </div>
-
-                  <div class="col-12 col-sm-6">
-                    <label class="checkbox-item w-100">
-                      <input
-                        type="checkbox"
-                        name="intolerances"
-                        value="Frutta a guscio"
-                      />
-                      <span>Frutta a guscio</span>
-                    </label>
-                  </div>
-
-                  <div class="col-12 col-sm-6">
-                    <label class="checkbox-item w-100">
-                      <input
-                        type="checkbox"
-                        name="intolerances"
-                        value="Pesce"
-                      />
-                      <span>Pesce</span>
-                    </label>
-                  </div>
-
-                  <div class="col-12 col-sm-6">
-                    <label class="checkbox-item w-100">
-                      <input
-                        type="checkbox"
-                        name="intolerances"
-                        value="Crostacei"
-                      />
-                      <span>Crostacei</span>
-                    </label>
-                  </div>
-
-                  <div class="col-12 col-sm-6">
-                    <label class="checkbox-item w-100">
-                      <input
-                        type="checkbox"
-                        name="intolerances"
-                        value="Altro"
-                      />
-                      <span>Altro</span>
-                    </label>
+              <div class="rsvp-row">
+                <div class="rsvp-left">
+                  <div class="rsvp-question">Parteciperai?</div>
+                  <div class="rsvp-options">
+                    <button type="button" class="rsvp-opt" data-value="Si">
+                      Sì
+                    </button>
+                    <button type="button" class="rsvp-opt" data-value="No">
+                      No
+                    </button>
                   </div>
                 </div>
               </div>
 
-              <div class="mb-3">
-                <label for="notes" class="form-label">Note aggiuntive</label>
-                <textarea
-                  id="notes"
-                  name="notes"
-                  rows="4"
-                  class="form-control custom-input"
-                  placeholder="Scrivi qui eventuali dettagli o richieste"
-                ></textarea>
+              <input type="hidden" id="attendance" name="attendance" />
+
+              <div id="commonFields" class="d-none">
+                <div class="mb-3">
+                  <label for="fullName" class="form-label"
+                    >Nome e cognome</label
+                  >
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    class="form-control custom-input"
+                    placeholder="Inserisci nome e cognome"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="phone" class="form-label"
+                    >Numero di telefono</label
+                  >
+                  <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    class="form-control custom-input"
+                    placeholder="Inserisci numero di telefono"
+                    minlength="10"
+                    maxlength="10"
+                    inputmode="numeric"
+                    autocomplete="tel"
+                  />
+                </div>
+              </div>
+
+              <div id="yesFields" class="d-none">
+                <div class="mb-3">
+                  <label for="guests" class="form-label">Numero invitati</label>
+                  <input
+                    type="number"
+                    id="guests"
+                    name="guests"
+                    class="form-control custom-input"
+                    min="1"
+                    max="10"
+                    value="1"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label class="checkbox-item w-100">
+                    <input type="checkbox" id="hasIntolerances" />
+                    <span>Hai intolleranze alimentari?</span>
+                  </label>
+                </div>
+
+                <div id="intolerancesWrapper" class="mb-3 d-none">
+                  <label class="form-label d-block"
+                    >Intolleranze alimentari</label
+                  >
+
+                  <div class="row g-2">
+                    <div class="col-12 col-sm-6">
+                      <label class="checkbox-item w-100">
+                        <input
+                          type="checkbox"
+                          name="intolerances"
+                          value="Glutine"
+                        />
+                        <span>Glutine</span>
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                      <label class="checkbox-item w-100">
+                        <input
+                          type="checkbox"
+                          name="intolerances"
+                          value="Lattosio"
+                        />
+                        <span>Lattosio</span>
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                      <label class="checkbox-item w-100">
+                        <input
+                          type="checkbox"
+                          name="intolerances"
+                          value="Frutta a guscio"
+                        />
+                        <span>Frutta a guscio</span>
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                      <label class="checkbox-item w-100">
+                        <input
+                          type="checkbox"
+                          name="intolerances"
+                          value="Pesce"
+                        />
+                        <span>Pesce</span>
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                      <label class="checkbox-item w-100">
+                        <input
+                          type="checkbox"
+                          name="intolerances"
+                          value="Crostacei"
+                        />
+                        <span>Crostacei</span>
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                      <label class="checkbox-item w-100">
+                        <input
+                          type="checkbox"
+                          name="intolerances"
+                          value="Altro"
+                        />
+                        <span>Altro</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div class="turnstile-wrapper my-4 d-flex justify-content-center">
@@ -231,8 +315,73 @@
           </div>
         </section>
       </main>
-    </div>
 
+      <div class="gift-fab" id="giftFabWrap">
+        <button
+          type="button"
+          class="gift-circle"
+          id="giftToggle"
+          aria-label="Mostra IBAN"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect
+              x="3"
+              y="8"
+              width="18"
+              height="14"
+              rx="1"
+              stroke="white"
+              fill="none"
+            />
+            <path d="M12 8v14" stroke="white" />
+            <path d="M3 12h18" stroke="white" />
+            <path
+              d="M12 8 C12 8 9 4 7 5 C5 6 7 8 12 8Z"
+              stroke="white"
+              fill="none"
+            />
+            <path
+              d="M12 8 C12 8 15 4 17 5 C19 6 17 8 12 8Z"
+              stroke="white"
+              fill="none"
+            />
+          </svg>
+        </button>
+
+        <div class="iban-popup d-none" id="ibanPopup">
+          <button
+            type="button"
+            class="copy-iban-btn"
+            id="copyIbanBtn"
+            aria-label="Copia IBAN"
+            title="Copia IBAN"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+              <path d="M5 15V6a2 2 0 0 1 2-2h9"></path>
+            </svg>
+          </button>
+
+          <div class="iban-popup-label">IBAN</div>
+          <div class="iban-popup-value" id="ibanValue">
+            IT95M3608105138225630625667
+          </div>
+          <div class="iban-copy-feedback" id="ibanCopyFeedback">Copiato!</div>
+        </div>
+      </div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
