@@ -1,7 +1,13 @@
 * {
   box-sizing: border-box;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -10,8 +16,10 @@ body {
   color: #4b3832;
   min-height: 100vh;
   position: relative;
+  overflow-x: hidden;
 }
 
+/* PAGINA REALE */
 .background-overlay {
   position: fixed;
   inset: 0;
@@ -30,31 +38,26 @@ body {
 }
 
 .page {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px 80px;
   position: relative;
   z-index: 1;
+  max-width: 960px;
 }
 
 .hero {
-  text-align: center;
-  padding: 70px 20px 50px;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
 }
 
 .eyebrow {
-  font-size: 1rem;
+  font-size: 0.95rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #9c7c64;
-  margin-bottom: 16px;
 }
 
 .hero h1 {
-  font-size: 3.4rem;
+  font-size: 2.2rem;
   font-weight: 500;
-  margin-bottom: 12px;
   line-height: 1.15;
 }
 
@@ -63,8 +66,7 @@ body {
 }
 
 .date {
-  font-size: 1.4rem;
-  margin-bottom: 8px;
+  font-size: 1.2rem;
 }
 
 .location {
@@ -72,104 +74,59 @@ body {
   color: #7d6555;
 }
 
-.card {
-  background: rgba(255, 255, 255, 0.88);
+.custom-card {
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(181, 139, 106, 0.18);
   border-radius: 24px;
-  padding: 32px 24px;
   box-shadow: 0 12px 30px rgba(75, 56, 50, 0.08);
   backdrop-filter: blur(6px);
 }
 
-.invitation-card,
-.rsvp-card {
-  margin-top: 28px;
-}
-
-.card h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 14px;
+.custom-card h2 {
+  font-size: 1.7rem;
   color: #6d4c41;
 }
 
-.card p {
-  text-align: center;
+.custom-card p {
   line-height: 1.7;
-}
-
-.event-details {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  margin-top: 28px;
 }
 
 .detail-box {
   background: #fbf6f1;
   border: 1px solid rgba(181, 139, 106, 0.2);
   border-radius: 18px;
-  padding: 22px 18px;
+  padding: 1.25rem 1rem;
   text-align: center;
 }
 
 .detail-box h3 {
-  margin-bottom: 10px;
+  margin-bottom: 0.75rem;
   color: #8d6e63;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
 }
 
-.rsvp-subtitle {
-  margin-bottom: 24px;
-}
-
-.rsvp-form {
-  margin-top: 10px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 1rem;
-  color: #5d4638;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
+.custom-input {
   border: 1px solid #d8c4b6;
   border-radius: 14px;
-  padding: 14px 16px;
+  padding: 0.9rem 1rem;
   font-size: 1rem;
   background: #fffdfb;
   color: #4b3832;
-  outline: none;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  box-shadow: none;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.custom-input:focus {
   border-color: #b58b6a;
   box-shadow: 0 0 0 4px rgba(181, 139, 106, 0.12);
 }
 
-.checkbox-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 8px;
+.form-label {
+  color: #5d4638;
+  margin-bottom: 0.5rem;
 }
 
 .checkbox-item {
-  display: flex !important;
+  display: flex;
   align-items: center;
   gap: 10px;
   background: #fbf6f1;
@@ -177,21 +134,15 @@ body {
   border-radius: 14px;
   padding: 12px 14px;
   cursor: pointer;
+  min-height: 56px;
 }
 
 .checkbox-item input {
-  width: auto;
-  transform: scale(1.1);
-}
-
-.turnstile-wrapper {
-  margin: 22px 0 12px;
-  display: flex;
-  justify-content: center;
+  transform: scale(1.05);
+  margin: 0;
 }
 
 .submit-btn {
-  width: 100%;
   border: none;
   border-radius: 16px;
   padding: 15px 18px;
@@ -211,24 +162,375 @@ body {
 }
 
 .form-message {
-  margin-top: 16px;
-  text-align: center;
   min-height: 24px;
   color: #6d4c41;
   font-size: 0.96rem;
 }
 
-@media (max-width: 700px) {
-  .hero h1 {
-    font-size: 2.4rem;
+/* CONTENUTO SOTTO */
+.site-content {
+  position: relative;
+  z-index: 1;
+}
+
+.site-content.hidden-before-open {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.site-content.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.18s ease;
+}
+
+/* INTRO FULLSCREEN */
+.invitation-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.32), transparent 30%),
+    linear-gradient(180deg, #ede8e2 0%, #e7e0d8 100%);
+  overflow: hidden;
+  transition:
+    opacity 0.45s ease,
+    visibility 0.45s ease;
+}
+
+.invitation-intro.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-envelope {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.42),
+      rgba(255, 255, 255, 0) 20%
+    ),
+    #f6f2ee;
+}
+
+.intro-envelope.opened {
+  background: transparent;
+}
+
+/* PANNELLI BUSTA */
+.envelope-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition:
+    transform 0.82s cubic-bezier(0.7, 0, 0.2, 1),
+    opacity 0.45s ease;
+  will-change: transform, opacity;
+}
+
+.intro-envelope.opened .envelope-panel {
+  transition:
+    transform 0.72s cubic-bezier(0.7, 0, 0.2, 1),
+    opacity 0.28s ease;
+}
+
+.envelope-left {
+  left: 0;
+  box-shadow: inset -10px 0 18px rgba(0, 0, 0, 0.018);
+}
+
+.envelope-right {
+  right: 0;
+  box-shadow: inset 10px 0 18px rgba(0, 0, 0, 0.018);
+}
+
+/* FIORI SUPERIORI + INFERIORI DIVISI CORRETTAMENTE */
+.envelope-left-floral,
+.envelope-right-floral {
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-image:
+    url("assets/fiori_superiore.png"), url("assets/fiori_inferiore.png"),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(245, 241, 236, 0.98)
+    ),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.008), rgba(255, 255, 255, 0.03));
+}
+
+/* BASE */
+.envelope-left-floral {
+  background-position:
+    left top,
+    left bottom,
+    center,
+    center;
+}
+
+.envelope-right-floral {
+  background-position:
+    right top,
+    right bottom,
+    center,
+    center;
+}
+
+/* TEXTURE CARTA LEGGERA */
+.envelope-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.9) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 70% 40%,
+      rgba(255, 255, 255, 0.7) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 35% 75%,
+      rgba(0, 0, 0, 0.035) 0 1px,
+      transparent 1.5px
+    );
+  background-size:
+    26px 26px,
+    34px 34px,
+    40px 40px;
+  pointer-events: none;
+}
+
+/* TIMBRO IMMAGINE */
+.wax-seal {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  width: 118px;
+  height: 118px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  z-index: 7;
+  transition:
+    transform 0.18s ease,
+    opacity 0.22s ease,
+    filter 0.18s ease;
+}
+
+.wax-seal:hover {
+  transform: translate(-50%, -50%) scale(1.03);
+  filter: brightness(1.02);
+}
+
+.wax-seal:focus-visible {
+  outline: 2px solid rgba(181, 139, 106, 0.55);
+  outline-offset: 6px;
+  border-radius: 50%;
+}
+
+.wax-seal-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 18px rgba(120, 83, 45, 0.16));
+}
+
+/* APERTURA RAPIDA */
+.intro-envelope.opened .envelope-left {
+  transform: translateX(-108%);
+  opacity: 0.78;
+}
+
+.intro-envelope.opened .envelope-right {
+  transform: translateX(108%);
+  opacity: 0.78;
+}
+
+.intro-envelope.opened .wax-seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+/* RESPONSIVE */
+@media (max-width: 767px) {
+  .envelope-left-floral,
+  .envelope-right-floral {
+    background-size:
+      200% auto,
+      /* fiori superiori */ 200% auto,
+      /* fiori inferiori */ 100% 100%,
+      100% 100%;
   }
 
-  .event-details,
-  .checkbox-grid {
-    grid-template-columns: 1fr;
+  .envelope-left-floral {
+    background-position:
+      left top -50px,
+      left bottom -50px,
+      center,
+      center;
   }
 
-  .card {
-    padding: 24px 18px;
+  .envelope-right-floral {
+    background-position:
+      right top -50px,
+      right bottom -50px,
+      center,
+      center;
+  }
+
+  .wax-seal {
+    width: 118px;
+    height: 118px;
+    top: 52%;
+  }
+}
+
+@media (min-width: 768px) {
+  .envelope-left-floral,
+  .envelope-right-floral {
+    background-size:
+      200% auto,
+      /* fiori superiori */ 200% auto,
+      /* fiori inferiori */ 100% 100%,
+      100% 100%;
+  }
+
+  .envelope-left-floral {
+    background-position:
+      left top -150px,
+      left bottom -150px,
+      center,
+      center;
+  }
+
+  .envelope-right-floral {
+    background-position:
+      right top -150px,
+      right bottom -150px,
+      center,
+      center;
+  }
+
+  .wax-seal {
+    width: 145px;
+    height: 145px;
+    top: 51.5%;
+  }
+}
+
+@media (min-width: 1300px) {
+  .envelope-left-floral,
+  .envelope-right-floral {
+    background-size:
+      200% auto,
+      200% auto,
+      100% 100%,
+      100% 100%;
+  }
+
+  .envelope-left-floral {
+    background-position:
+      left top -200px,
+      left bottom -200px,
+      center,
+      center;
+  }
+
+  .envelope-right-floral {
+    background-position:
+      right top -200px,
+      right bottom -200px,
+      center,
+      center;
+  }
+
+  .wax-seal {
+    width: 145px;
+    height: 145px;
+    top: 50.5%;
+  }
+}
+
+@media (min-width: 1450px) {
+  .envelope-left-floral,
+  .envelope-right-floral {
+    background-size:
+      200% auto,
+      200% auto,
+      100% 100%,
+      100% 100%;
+  }
+
+  .envelope-left-floral {
+    background-position:
+      left top -350px,
+      left bottom -350px,
+      center,
+      center;
+  }
+
+  .envelope-right-floral {
+    background-position:
+      right top -350px,
+      right bottom -350px,
+      center,
+      center;
+  }
+
+  .wax-seal {
+    width: 145px;
+    height: 145px;
+    top: 50.5%;
+  }
+}
+
+@media (min-width: 1950px) {
+  .envelope-left-floral,
+  .envelope-right-floral {
+    background-size:
+      200% auto,
+      200% auto,
+      100% 100%,
+      100% 100%;
+  }
+
+  .envelope-left-floral {
+    background-position:
+      left top -500px,
+      left bottom -500px,
+      center,
+      center;
+  }
+
+  .envelope-right-floral {
+    background-position:
+      right top -500px,
+      right bottom -500px,
+      center,
+      center;
+  }
+
+  .wax-seal {
+    width: 145px;
+    height: 145px;
+    top: 50.5%;
   }
 }

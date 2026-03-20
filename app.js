@@ -64,3 +64,23 @@ if (rsvpForm && formMessage) {
     }
   });
 }
+
+const invitationIntro = document.getElementById("invitationIntro");
+const introEnvelope = document.getElementById("introEnvelope");
+const sealButton = document.getElementById("sealButton");
+const siteContent = document.getElementById("siteContent");
+
+if (sealButton && introEnvelope && invitationIntro && siteContent) {
+  sealButton.addEventListener("click", () => {
+    siteContent.classList.remove("hidden-before-open");
+    siteContent.classList.add("visible");
+
+    requestAnimationFrame(() => {
+      introEnvelope.classList.add("opened");
+    });
+
+    setTimeout(() => {
+      invitationIntro.classList.add("hide");
+    }, 520);
+  });
+}
