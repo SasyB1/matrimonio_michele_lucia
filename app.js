@@ -122,6 +122,12 @@ function updateAttendanceVisibility() {
 async function submitForm(event) {
   event.preventDefault();
 
+  if (document.activeElement instanceof HTMLElement) {
+    document.activeElement.blur();
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
   if (!rsvpForm) return;
 
   const fullName = document.getElementById("fullName")?.value.trim() || "";
@@ -190,6 +196,12 @@ async function submitForm(event) {
     if (!response.ok || !data?.ok) {
       throw new Error(data?.error || "Invio non riuscito.");
     }
+
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     if (formContent && successMsg) {
       formContent.style.display = "none";
