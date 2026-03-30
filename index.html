@@ -3,383 +3,674 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Matrimonio Michele & Lucia</title>
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
+    <title>Michele & Lucia – 15 Giugno 2026</title>
     <link rel="stylesheet" href="style.css" />
-
-    <script
-      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-      async
-      defer
-    ></script>
   </head>
   <body>
     <div id="invitationIntro" class="invitation-intro">
-      <div id="introEnvelope" class="intro-envelope">
-        <div class="envelope-panel envelope-left envelope-left-floral"></div>
-        <div class="envelope-panel envelope-right envelope-right-floral"></div>
+      <div class="intro-stage">
+        <div id="introEnvelope" class="envelope-shell">
+          <div class="envelope-base"></div>
 
-        <button
-          id="sealButton"
-          class="wax-seal"
-          type="button"
-          aria-label="Apri invito"
-        >
-          <img
-            src="assets/timbrolacca.png"
-            alt=""
-            class="wax-seal-img"
-            draggable="false"
-          />
-        </button>
+          <!-- preview reale della prima pagina -->
+          <div class="envelope-content-preview" aria-hidden="true">
+            <div class="preview-page">
+              <p class="preview-hero-tag">Ci sposiamo</p>
+
+              <div class="preview-hero-name">Michele</div>
+              <div class="preview-hero-amp">&amp;</div>
+              <div class="preview-hero-name">Lucia</div>
+
+              <p class="preview-hero-date">15 Giugno 2026</p>
+
+              <div class="preview-countdown">
+                <div class="preview-cd-unit">
+                  <span class="preview-cd-num" id="preview-cd-giorni">--</span>
+                  <span class="preview-cd-label">Giorni</span>
+                </div>
+                <div class="preview-cd-unit">
+                  <span class="preview-cd-num" id="preview-cd-ore">--</span>
+                  <span class="preview-cd-label">Ore</span>
+                </div>
+                <div class="preview-cd-unit">
+                  <span class="preview-cd-num" id="preview-cd-minuti">--</span>
+                  <span class="preview-cd-label">Minuti</span>
+                </div>
+                <div class="preview-cd-unit">
+                  <span class="preview-cd-num" id="preview-cd-secondi">--</span>
+                  <span class="preview-cd-label">Secondi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- lembo sinistro -->
+          <div class="flap flap-left">
+            <svg
+              class="flap-svg"
+              viewBox="0 0 1000 1000"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M0 0
+                   H320
+                   C390 110, 450 230, 565 500
+                   C470 720, 360 900, 280 1000
+                   H0
+                   Z"
+              />
+            </svg>
+          </div>
+
+          <!-- lembo destro -->
+          <div class="flap flap-right">
+            <svg
+              class="flap-svg"
+              viewBox="0 0 1000 1000"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M320 0
+                   H1000
+                   V1000
+                   H280
+                   C360 900, 470 720, 565 500
+                   C450 230, 390 110, 320 0
+                   Z"
+              />
+            </svg>
+          </div>
+
+          <!-- linea centrale -->
+          <div class="middle-line" aria-hidden="true">
+            <svg
+              class="middle-line-svg"
+              viewBox="0 0 1000 1000"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M320 0
+                   C390 110, 450 230, 565 500
+                   C470 720, 360 900, 280 1000"
+              />
+            </svg>
+          </div>
+
+          <button
+            id="sealButton"
+            class="seal-button"
+            type="button"
+            aria-label="Apri invito"
+          >
+            <img
+              src="assets/timbrolacca.png"
+              alt="Apri invito"
+              class="seal-img"
+              draggable="false"
+            />
+          </button>
+        </div>
       </div>
     </div>
 
-    <div id="siteContent" class="site-content hidden-before-open">
-      <div class="background-overlay"></div>
+    <main id="siteContent" class="site-content hidden-before-open">
+      <!-- ══ NAV ══ -->
+      <nav id="main-nav">
+        <div class="nav-inner">
+          <div class="nav-row1">
+            <a href="#dettagli">Dettagli</a>
+            <a href="#programma">Programma</a>
+            <a href="#regalo">Regalo</a>
+          </div>
+          <div class="nav-row2">
+            <a href="#conferma">Conferma</a>
+          </div>
+        </div>
+      </nav>
 
-      <main class="page invitation-page-single">
-        <section class="invitation-fullsheet">
-          <div class="sheet-deco sheet-deco-tl"></div>
-          <div class="sheet-deco sheet-deco-tr"></div>
-          <div class="sheet-deco sheet-deco-bl"></div>
-          <div class="sheet-deco sheet-deco-br"></div>
+      <!-- ══ HERO ══ -->
+      <section id="hero">
+        <p class="hero-tag">Ci sposiamo</p>
+        <div class="hero-name">Michele</div>
+        <div class="hero-amp">&amp;</div>
+        <div class="hero-name">Lucia</div>
+        <p class="hero-date">15 Giugno 2026</p>
 
-          <div class="invitation-top">
-            <p class="invite-subtitle">
-              Siamo felici di invitarvi al<br />nostro matrimonio
-            </p>
+        <div class="countdown">
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-giorni">--</span>
+            <span class="cd-label">Giorni</span>
+          </div>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-ore">--</span>
+            <span class="cd-label">Ore</span>
+          </div>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-minuti">--</span>
+            <span class="cd-label">Minuti</span>
+          </div>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-secondi">--</span>
+            <span class="cd-label">Secondi</span>
+          </div>
+        </div>
+      </section>
 
-            <h1 class="invite-name">Michele</h1>
-            <div class="invite-ampersand">&amp;</div>
-            <h1 class="invite-name invite-name-bottom">Lucia</h1>
+      <!-- ══ DETTAGLI ══ -->
+      <section id="dettagli">
+        <h2 class="section-title">Dettagli</h2>
 
-            <div class="invite-date-wrap">
-              <div class="invite-date-line"></div>
+        <div class="venue-block">
+          <div class="venue-title">La Cerimonia</div>
+          <div class="venue-name">Parrocchia Gesù Redentore</div>
+          <div class="venue-address">
+            Via Santa Maria la Carità 477<br />Sant'Antonio Abate (NA)
+          </div>
+          <div class="venue-time">Ore 11:00</div>
+          <a
+            class="maps-link"
+            href="https://www.google.com/maps/place/Parrocchia+Gesu'+Redentore/@40.7207823,14.524656,16z/data=!3m1!4b1!4m6!3m5!1s0x133bbc4c5a4ef7bb:0xe60463919f9ee433!8m2!3d40.7207783!4d14.5272309!16s%2Fg%2F11b7q8m5g6?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Apri in Google Maps</a
+          >
+        </div>
 
-              <div class="invite-date-center">
-                <span class="invite-date-label">Lunedì</span>
+        <div class="divider"></div>
 
-                <div class="invite-date-diamond-wrap">
-                  <div class="invite-date-diamond"></div>
-                  <span class="invite-date-day">15</span>
-                  <span class="invite-date-year">2026</span>
-                </div>
+        <div class="venue-block">
+          <div class="venue-title">Il Ricevimento</div>
+          <div class="venue-name">Villa Andrea Paestum</div>
+          <div class="venue-address">
+            Via Vecchia Cilentana, loc. Giancesare<br />Capaccio (SA)
+          </div>
+          <div class="venue-note">
+            Area verde con giardino, immersi nella natura
+          </div>
+          <a
+            class="maps-link"
+            href="https://www.google.com/maps/place/Villa+Andrea+Paestum/@40.430382,15.0461406,17z/data=!3m1!4b1!4m6!3m5!1s0x133957c214c41347:0xab005abd648bf5c8!8m2!3d40.4303779!4d15.0487155!16s%2Fg%2F1pp2vdbc9?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Apri in Google Maps</a
+          >
+        </div>
+      </section>
 
-                <span class="invite-date-label">Giugno</span>
-              </div>
+      <!-- ══ PROGRAMMA ══ -->
+      <section id="programma">
+        <h2 class="section-title">Programma</h2>
 
-              <div class="invite-date-line right"></div>
-            </div>
-
-            <p class="invite-time">ORE 10:30</p>
-
-            <p class="invite-location-text">
-              Clicca qui per scoprire dove si<br />terra la cerimonia
-            </p>
-            <a
-              class="invite-location-icon location-link"
-              href="https://www.google.com/maps/place/Parrocchia+Gesu'+Redentore/@40.7207783,14.5272309,17z/data=!3m1!4b1!4m6!3m5!1s0x133bbc4c5a4ef7bb:0xe60463919f9ee433!8m2!3d40.7207783!4d14.5272309!16s%2Fg%2F11b7q8m5g6?entry=ttu&g_ep=EgoyMDI2MDMxNy4wIKXMDSoASAFQAw%3D%3D"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Apri la posizione su Google Maps"
-            >
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-icon">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
                 viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+                stroke-width="1.4"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-building-church"
               >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M3 21l18 0" />
-                <path d="M10 21v-4a2 2 0 0 1 4 0v4" />
-                <path d="M10 5l4 0" />
-                <path d="M12 3l0 5" />
-                <path d="M6 21v-7m-2 2l8 -8l8 8m-2 -2v7" />
-              </svg>
-            </a>
-
-            <p class="invite-location-text">
-              Clicca qui per aprire la location del<br />ricevimento
-            </p>
-            <a
-              class="invite-location-icon location-link"
-              href="https://www.google.com/maps?q=Villa+Andrea+Paestum,+Via+Vecchia+Cilentana,+84047+Loc.+Giancesare,+Capaccio+SA&ftid=0x133957c214c41347:0xab005abd648bf5c8&entry=gps&shh=CAE&lucs=,94297699,94284511,94231188,94280568,47071704,94218641,94282134,94286869&g_ep=CAISEjI2LjExLjEuODgxMDA1NjQ2MBgAIIgnKkgsOTQyOTc2OTksOTQyODQ1MTEsOTQyMzExODgsOTQyODA1NjgsNDcwNzE3MDQsOTQyMTg2NDEsOTQyODIxMzQsOTQyODY4NjlCAklU&skid=758e4924-1e3d-4157-aa01-a640b716e980&g_st=ic"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Apri la posizione del ricevimento su Google Maps"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-tools-kitchen-2"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path
-                  d="M19 3v12h-5c-.023 -3.681 .184 -7.406 5 -12m0 12v6h-1v-3m-10 -14v17m-3 -17v3a3 3 0 1 0 6 0v-3"
+                  d="M3 10.5 L12 3 L21 10.5 V20 a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"
+                />
+                <path d="M9 21V12h6v9" />
+                <path d="M12 3V1M10 2h4" />
+                <path d="M11 7h2M12 6v4" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time">10:30</div>
+              <div class="tl-desc">Arrivo in Chiesa</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon">
+              <svg
+                viewBox="0 0 24 24"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 22h8M12 11v11M5 2l2 9a5 5 0 0 0 10 0l2-9z" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time">13:00</div>
+              <div class="tl-desc">Aperitivo di benvenuto</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon">
+              <svg
+                viewBox="0 0 24 24"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 2v7c0 1.66 1.34 3 3 3h2v10h2V12h2c1.66 0 3-1.34 3-3V2h-2v5H7V2z"
+                />
+                <path d="M18 2c0 4 2 6 2 10v8h-4V12c0-4 2-6 2-10z" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time">14:00</div>
+              <div class="tl-desc">Pranzo</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon">
+              <svg
+                viewBox="0 0 24 24"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2 L8 8 L16 8 Z" />
+                <path d="M8 8 Q6 14 9 17 M16 8 Q18 14 15 17" />
+                <path d="M4 6 L8 8 M20 6 L16 8" />
+                <circle cx="6" cy="5" r=".5" fill="currentColor" />
+                <circle cx="18" cy="5" r=".5" fill="currentColor" />
+                <path d="M9 17h6M12 17v4M9 21h6" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time">16:00</div>
+              <div class="tl-desc">Brindisi e divertimento</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon">
+              <svg
+                viewBox="0 0 24 24"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2 L13.5 8.5 L20 7 L15.5 12 L20 17 L13.5 15.5 L12 22 L10.5 15.5 L4 17 L8.5 12 L4 7 L10.5 8.5 Z"
                 />
               </svg>
-            </a>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time">18:00</div>
+              <div class="tl-desc">Sorpresa ✨</div>
+            </div>
           </div>
 
-          <div class="invitation-form-wrap">
-            <h2 class="invite-form-title">Conferma presenza</h2>
-            <p class="invite-form-subtitle">
-              Compila il modulo qui sotto per confermare la tua presenza.
-            </p>
-            <p class="invite-form-subtitle mb-2">
-              È gradita gentile conferma entro il 15-05-2026.
-            </p>
-
-            <form id="rsvpForm" class="rsvp-form" novalidate>
-              <div class="rsvp-row">
-                <div class="rsvp-left">
-                  <div class="rsvp-question">Parteciperai?</div>
-                  <div class="rsvp-options">
-                    <button type="button" class="rsvp-opt" data-value="Si">
-                      Sì
-                    </button>
-                    <button type="button" class="rsvp-opt" data-value="No">
-                      No
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <input type="hidden" id="attendance" name="attendance" />
-
-              <div id="commonFields" class="d-none">
-                <div class="mb-3">
-                  <label for="fullName" class="form-label"
-                    >Nome e cognome</label
-                  >
-                  <input
-                    type="text"
-                    id="fullName"
-                    name="fullName"
-                    class="form-control custom-input"
-                    placeholder="Inserisci nome e cognome"
-                  />
-                </div>
-
-                <div class="mb-3">
-                  <label for="phone" class="form-label"
-                    >Numero di telefono</label
-                  >
-                  <input
-                    type="text"
-                    id="phone"
-                    name="phone"
-                    class="form-control custom-input"
-                    placeholder="Inserisci numero di telefono"
-                    minlength="10"
-                    maxlength="10"
-                    inputmode="numeric"
-                    autocomplete="tel"
-                  />
-                </div>
-              </div>
-
-              <div id="yesFields" class="d-none">
-                <div class="mb-3">
-                  <label for="guests" class="form-label">Numero invitati</label>
-                  <input
-                    type="number"
-                    id="guests"
-                    name="guests"
-                    class="form-control custom-input"
-                    min="1"
-                    max="10"
-                    value="1"
-                  />
-                </div>
-
-                <div class="mb-3">
-                  <label class="checkbox-item w-100">
-                    <input type="checkbox" id="hasIntolerances" />
-                    <span>Hai intolleranze alimentari?</span>
-                  </label>
-                </div>
-
-                <div id="intolerancesWrapper" class="mb-3 d-none">
-                  <label class="form-label d-block"
-                    >Intolleranze alimentari</label
-                  >
-
-                  <div class="row g-2">
-                    <div class="col-12 col-sm-6">
-                      <label class="checkbox-item w-100">
-                        <input
-                          type="checkbox"
-                          name="intolerances"
-                          value="Glutine"
-                        />
-                        <span>Glutine</span>
-                      </label>
-                    </div>
-
-                    <div class="col-12 col-sm-6">
-                      <label class="checkbox-item w-100">
-                        <input
-                          type="checkbox"
-                          name="intolerances"
-                          value="Lattosio"
-                        />
-                        <span>Lattosio</span>
-                      </label>
-                    </div>
-
-                    <div class="col-12 col-sm-6">
-                      <label class="checkbox-item w-100">
-                        <input
-                          type="checkbox"
-                          name="intolerances"
-                          value="Frutta a guscio"
-                        />
-                        <span>Frutta a guscio</span>
-                      </label>
-                    </div>
-
-                    <div class="col-12 col-sm-6">
-                      <label class="checkbox-item w-100">
-                        <input
-                          type="checkbox"
-                          name="intolerances"
-                          value="Pesce"
-                        />
-                        <span>Pesce</span>
-                      </label>
-                    </div>
-
-                    <div class="col-12 col-sm-6">
-                      <label class="checkbox-item w-100">
-                        <input
-                          type="checkbox"
-                          name="intolerances"
-                          value="Crostacei"
-                        />
-                        <span>Crostacei</span>
-                      </label>
-                    </div>
-
-                    <div class="col-12 col-sm-6">
-                      <label class="checkbox-item w-100">
-                        <input
-                          type="checkbox"
-                          name="intolerances"
-                          value="Altro"
-                        />
-                        <span>Altro</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="turnstile-wrapper my-4 d-flex justify-content-center">
-                <div
-                  class="cf-turnstile"
-                  data-sitekey="0x4AAAAAACsyyPmLXlU2Xgiv"
-                  data-theme="light"
-                ></div>
-              </div>
-
-              <button type="submit" class="submit-btn w-100">
-                Invia conferma
-              </button>
-
-              <p
-                id="formMessage"
-                class="form-message text-center mt-3 mb-0"
-              ></p>
-            </form>
+          <div class="tl-item">
+            <div class="tl-icon">
+              <svg
+                viewBox="0 0 24 24"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="12" width="20" height="9" rx="1" />
+                <path d="M12 2v4M10 4l2-2 2 2" />
+                <path d="M2 12 Q6 9 10 12 Q14 15 18 12 Q20 10.5 22 12" />
+                <path d="M7 12V9M17 12V9" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time">21:00</div>
+              <div class="tl-desc">Taglio della torta</div>
+            </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <div class="gift-fab" id="giftFabWrap">
-        <button
-          type="button"
-          class="gift-circle"
-          id="giftToggle"
-          aria-label="Mostra IBAN"
-        >
+      <!-- ══ REGALO ══ -->
+      <section id="regalo">
+        <h2 class="section-title">Un Pensiero per Noi</h2>
+
+        <div class="regalo-icon">
           <svg
             viewBox="0 0 24 24"
-            stroke-width="1.8"
+            stroke-width="1.4"
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <rect
-              x="3"
-              y="8"
-              width="18"
-              height="14"
-              rx="1"
-              stroke="white"
-              fill="none"
-            />
-            <path d="M12 8v14" stroke="white" />
-            <path d="M3 12h18" stroke="white" />
-            <path
-              d="M12 8 C12 8 9 4 7 5 C5 6 7 8 12 8Z"
-              stroke="white"
-              fill="none"
-            />
-            <path
-              d="M12 8 C12 8 15 4 17 5 C19 6 17 8 12 8Z"
-              stroke="white"
-              fill="none"
-            />
+            <rect x="3" y="8" width="18" height="14" rx="1" />
+            <path d="M12 8v14M3 12h18" />
+            <path d="M12 8 C12 8 9 4 7 5 C5 6 7 8 12 8Z" />
+            <path d="M12 8 C12 8 15 4 17 5 C19 6 17 8 12 8Z" />
           </svg>
+        </div>
+
+        <p class="regalo-text">
+          Non abbiamo una lista nozze, ma se proprio volete farci un regalo
+          potrete contribuire al nostro viaggio di nozze.
+        </p>
+
+        <div class="coord-toggle" id="coord-toggle">
+          Mostra coordinate bancarie
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </div>
+
+        <div class="coord-box" id="coord-box">
+          <p><span>Intestatario</span><br />Michele Buonaiuto</p>
+          <br />
+          <p><span>IBAN</span><br />IT95 M360 8105 1382 2563 0625 667</p>
+          <br />
+          <p><span>Causale</span><br />Contributo viaggio di nozze</p>
+        </div>
+
+        <svg
+          class="botanical"
+          viewBox="0 0 340 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 40 Q80 30 160 40"
+            stroke="#9aaf9a"
+            stroke-width="1.2"
+            fill="none"
+            opacity=".6"
+          />
+          <ellipse
+            cx="40"
+            cy="32"
+            rx="12"
+            ry="5"
+            fill="#b8cbb8"
+            opacity=".5"
+            transform="rotate(-25 40 32)"
+          />
+          <ellipse
+            cx="60"
+            cy="28"
+            rx="10"
+            ry="4"
+            fill="#c5d5c0"
+            opacity=".45"
+            transform="rotate(-35 60 28)"
+          />
+          <ellipse
+            cx="85"
+            cy="26"
+            rx="11"
+            ry="4.5"
+            fill="#a8c0a8"
+            opacity=".42"
+            transform="rotate(-45 85 26)"
+          />
+          <ellipse
+            cx="110"
+            cy="28"
+            rx="9"
+            ry="4"
+            fill="#b0c8b0"
+            opacity=".4"
+            transform="rotate(-30 110 28)"
+          />
+          <ellipse
+            cx="135"
+            cy="33"
+            rx="10"
+            ry="4"
+            fill="#c0d0ba"
+            opacity=".38"
+            transform="rotate(-20 135 33)"
+          />
+          <circle cx="72" cy="24" r="2.5" fill="#e8c84a" opacity=".55" />
+          <circle cx="98" cy="22" r="2" fill="#d4b038" opacity=".5" />
+          <circle cx="122" cy="25" r="2.5" fill="#e8c84a" opacity=".48" />
+          <circle cx="170" cy="40" r="3" fill="#c0d0ba" opacity=".5" />
+          <path
+            d="M330 40 Q260 30 180 40"
+            stroke="#9aaf9a"
+            stroke-width="1.2"
+            fill="none"
+            opacity=".6"
+          />
+          <ellipse
+            cx="300"
+            cy="32"
+            rx="12"
+            ry="5"
+            fill="#b8cbb8"
+            opacity=".5"
+            transform="rotate(25 300 32)"
+          />
+          <ellipse
+            cx="275"
+            cy="28"
+            rx="10"
+            ry="4"
+            fill="#c5d5c0"
+            opacity=".45"
+            transform="rotate(35 275 28)"
+          />
+          <ellipse
+            cx="250"
+            cy="26"
+            rx="11"
+            ry="4.5"
+            fill="#a8c0a8"
+            opacity=".42"
+            transform="rotate(45 250 26)"
+          />
+          <ellipse
+            cx="225"
+            cy="28"
+            rx="9"
+            ry="4"
+            fill="#b0c8b0"
+            opacity=".4"
+            transform="rotate(30 225 28)"
+          />
+          <ellipse
+            cx="200"
+            cy="33"
+            rx="10"
+            ry="4"
+            fill="#c0d0ba"
+            opacity=".38"
+            transform="rotate(20 200 33)"
+          />
+          <circle cx="263" cy="24" r="2.5" fill="#e8c84a" opacity=".55" />
+          <circle cx="237" cy="22" r="2" fill="#d4b038" opacity=".5" />
+          <circle cx="213" cy="25" r="2.5" fill="#e8c84a" opacity=".48" />
+        </svg>
+
+        <svg
+          class="botanical"
+          viewBox="0 0 300 60"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style="margin-top: 8px; width: min(260px, 75%)"
+        >
+          <path
+            d="M20 30 Q100 20 150 30 Q200 40 280 30"
+            stroke="#9aaf9a"
+            stroke-width="1"
+            fill="none"
+            opacity=".5"
+          />
+          <ellipse
+            cx="60"
+            cy="23"
+            rx="10"
+            ry="4"
+            fill="#b8cbb8"
+            opacity=".42"
+            transform="rotate(-30 60 23)"
+          />
+          <ellipse
+            cx="100"
+            cy="19"
+            rx="9"
+            ry="3.5"
+            fill="#c5d5c0"
+            opacity=".38"
+            transform="rotate(-20 100 19)"
+          />
+          <ellipse
+            cx="200"
+            cy="23"
+            rx="10"
+            ry="4"
+            fill="#b8cbb8"
+            opacity=".42"
+            transform="rotate(30 200 23)"
+          />
+          <ellipse
+            cx="240"
+            cy="19"
+            rx="9"
+            ry="3.5"
+            fill="#c5d5c0"
+            opacity=".38"
+            transform="rotate(20 240 19)"
+          />
+          <circle cx="140" cy="18" r="2" fill="#e8c84a" opacity=".5" />
+          <circle cx="160" cy="20" r="1.5" fill="#d4b038" opacity=".45" />
+        </svg>
+      </section>
+
+      <!-- ══ CONFERMA ══ -->
+      <section id="conferma">
+        <div class="conf-icon">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="1.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="8" y="2" width="8" height="4" rx="1" />
+            <path
+              d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+            />
+            <path d="M9 12l2 2 4-4" />
+          </svg>
+        </div>
+
+        <h2 class="section-title">Conferma</h2>
+
+        <p class="conf-text">
+          Comunicaci la tua presenza e eventuali allergie o intolleranze
+        </p>
+
+        <button class="conf-btn" id="openModalBtn" type="button">
+          Conferma Qui
         </button>
 
-        <div class="iban-popup d-none" id="ibanPopup">
-          <button
-            type="button"
-            class="copy-iban-btn"
-            id="copyIbanBtn"
-            aria-label="Copia IBAN"
-            title="Copia IBAN"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="9" y="9" width="11" height="11" rx="2"></rect>
-              <path d="M5 15V6a2 2 0 0 1 2-2h9"></path>
-            </svg>
-          </button>
+        <p class="conf-deadline">Entro il 15 Maggio 2026</p>
+      </section>
+    </main>
 
-          <div class="iban-popup-label">IBAN</div>
-          <div class="iban-popup-value" id="ibanValue">
-            IT95M3608105138225630625667
-          </div>
-          <div class="iban-copy-feedback" id="ibanCopyFeedback">Copiato!</div>
+    <!-- ══ RSVP MODAL ══ -->
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal modal-relative">
+        <button class="modal-close" id="modalCloseBtn" type="button">×</button>
+
+        <div id="form-content">
+          <h3>Conferma presenza</h3>
+
+          <form id="rsvpForm">
+            <div class="form-group">
+              <label for="fullName">Nome e Cognome Famiglia</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Es. Famiglia Rossi"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="attendance">Parteciperò</label>
+              <select id="attendance" name="attendance" required>
+                <option value="">Seleziona</option>
+                <option value="Si">Sì</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="adultGuestsGroup">
+              <label for="adultGuests">Quanti adulti sarete</label>
+              <select id="adultGuests" name="adultGuests" required>
+                <option value="">Seleziona</option>
+                <option value="1">1 adulto</option>
+                <option value="2">2 adulti</option>
+                <option value="3">3 adulti</option>
+                <option value="4">4 adulti</option>
+                <option value="5">5 adulti</option>
+                <option value="6">6 adulti</option>
+                <option value="7">7 adulti</option>
+                <option value="8">8 adulti</option>
+                <option value="9">9 adulti</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="childrenMenu">Bambini (menù bambini)</label>
+              <select id="childrenMenu" name="childrenMenu" required>
+                <option value="No" selected>No</option>
+                <option value="Si">Sì</option>
+              </select>
+            </div>
+
+            <div class="form-group hidden-field" id="childrenCountGroup">
+              <label for="childrenCount">N° bambini</label>
+              <select id="childrenCount" name="childrenCount">
+                <option value="">Seleziona</option>
+                <option value="1">1 bambino</option>
+                <option value="2">2 bambini</option>
+                <option value="3">3 bambini</option>
+                <option value="4">4 bambini</option>
+                <option value="5">5 bambini</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="foodNotes"
+                >Intolleranze, allergie o preferenze alimentari</label
+              >
+              <textarea
+                id="foodNotes"
+                name="foodNotes"
+                placeholder="Scrivi qui eventuali intolleranze, allergie o preferenze alimentari"
+              ></textarea>
+            </div>
+
+            <button class="btn-submit" id="submitFormBtn" type="submit">
+              Conferma la presenza
+            </button>
+
+            <p id="formMessage" class="form-message"></p>
+          </form>
+        </div>
+
+        <div class="success-msg" id="success-msg">
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#5a7a62"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9 12l2 2 4-4" />
+          </svg>
+          <p>
+            Grazie per aver confermato!<br />Non vediamo l'ora di festeggiare
+            con te 🥂
+          </p>
         </div>
       </div>
     </div>

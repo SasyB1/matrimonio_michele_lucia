@@ -1,321 +1,321 @@
-const rsvpForm = document.getElementById("rsvpForm");
-const formMessage = document.getElementById("formMessage");
-
-const attendanceInput = document.getElementById("attendance");
-const fullNameInput = document.getElementById("fullName");
-const phoneInput = document.getElementById("phone");
-const guestsInput = document.getElementById("guests");
-
-const commonFields = document.getElementById("commonFields");
-const yesFields = document.getElementById("yesFields");
-const intolerancesWrapper = document.getElementById("intolerancesWrapper");
-const hasIntolerances = document.getElementById("hasIntolerances");
-const attendanceButtons = document.querySelectorAll(".rsvp-opt");
+const API_URL =
+  "https://matrimonio-michele-lucia-api.sasy2506.workers.dev/api/rsvp";
 
 const invitationIntro = document.getElementById("invitationIntro");
 const introEnvelope = document.getElementById("introEnvelope");
 const sealButton = document.getElementById("sealButton");
 const siteContent = document.getElementById("siteContent");
 
-const giftToggle = document.getElementById("giftToggle");
-const ibanPopup = document.getElementById("ibanPopup");
-const copyIbanBtn = document.getElementById("copyIbanBtn");
-const ibanValue = document.getElementById("ibanValue");
-const ibanCopyFeedback = document.getElementById("ibanCopyFeedback");
+const modalOverlay = document.getElementById("modal-overlay");
+const openModalBtn = document.getElementById("openModalBtn");
+const modalCloseBtn = document.getElementById("modalCloseBtn");
+const formContent = document.getElementById("form-content");
+const successMsg = document.getElementById("success-msg");
 
-const API_URL =
-  "https://matrimonio-michele-lucia-api.sasy2506.workers.dev/api/rsvp";
+const coordToggle = document.getElementById("coord-toggle");
+const coordBox = document.getElementById("coord-box");
 
-/* =========================
-   TELEFONO: SOLO NUMERI
-   ========================= */
-if (phoneInput) {
-  phoneInput.addEventListener("input", () => {
-    phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
-  });
+const rsvpForm = document.getElementById("rsvpForm");
+const formMessage = document.getElementById("formMessage");
 
-  phoneInput.addEventListener("keypress", (event) => {
-    if (!/[0-9]/.test(event.key)) {
-      event.preventDefault();
-    }
-  });
+const attendanceInput = document.getElementById("attendance");
+const adultGuestsInput = document.getElementById("adultGuests");
+const adultGuestsGroup = document.getElementById("adultGuestsGroup");
 
-  phoneInput.addEventListener("paste", (event) => {
-    event.preventDefault();
+const childrenMenuInput = document.getElementById("childrenMenu");
+const childrenCountInput = document.getElementById("childrenCount");
+const childrenCountGroup = document.getElementById("childrenCountGroup");
 
-    const pastedText = (event.clipboardData || window.clipboardData).getData(
-      "text",
-    );
-
-    phoneInput.value = pastedText.replace(/\D/g, "").slice(0, 10);
-  });
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = value;
 }
 
-/* =========================
-   FORM RSVP
-   ========================= */
-function resetIntolerances() {
-  if (hasIntolerances) {
-    hasIntolerances.checked = false;
+function updateCountdown() {
+  const target = new Date("2026-06-15T11:00:00");
+  const now = new Date();
+  const diff = target - now;
+
+  let days = "0";
+  let hours = "0";
+  let mins = "0";
+  let secs = "0";
+
+  if (diff > 0) {
+    days = String(Math.floor(diff / 86400000));
+    hours = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, "0");
+    mins = String(Math.floor((diff % 3600000) / 60000)).padStart(2, "0");
+    secs = String(Math.floor((diff % 60000) / 1000)).padStart(2, "0");
   }
 
-  if (intolerancesWrapper) {
-    intolerancesWrapper.classList.add("d-none");
-  }
+  setText("cd-giorni", days);
+  setText("cd-ore", hours);
+  setText("cd-minuti", mins);
+  setText("cd-secondi", secs);
 
-  document
-    .querySelectorAll('input[name="intolerances"]')
-    .forEach((checkbox) => {
-      checkbox.checked = false;
-    });
+  setText("preview-cd-giorni", days);
+  setText("preview-cd-ore", hours);
+  setText("preview-cd-minuti", mins);
+  setText("preview-cd-secondi", secs);
 }
 
-function setAttendance(value) {
-  if (!attendanceInput) return;
+function toggleCoord() {
+  if (!coordBox || !coordToggle) return;
+  coordBox.classList.toggle("visible");
+  coordToggle.classList.toggle("open");
+}
 
-  attendanceInput.value = value;
+function openModal() {
+  if (!modalOverlay) return;
+  modalOverlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
 
-  attendanceButtons.forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.value === value);
-  });
+function closeModal() {
+  if (!modalOverlay) return;
+  modalOverlay.classList.remove("open");
+  document.body.style.overflow = "";
+}
 
-  if (commonFields) {
-    commonFields.classList.remove("d-none");
+function showFormMessage(message, type = "") {
+  if (!formMessage) return;
+  formMessage.textContent = message;
+  formMessage.classList.remove("is-error", "is-success");
+
+  if (type) {
+    formMessage.classList.add(type);
   }
+}
 
-  if (fullNameInput) {
-    fullNameInput.required = true;
-  }
+function resetSuccessState() {
+  if (!formContent || !successMsg) return;
+  formContent.style.display = "";
+  successMsg.classList.remove("show");
+}
 
-  if (phoneInput) {
-    phoneInput.required = true;
-  }
+function updateChildrenVisibility() {
+  if (!childrenMenuInput || !childrenCountGroup || !childrenCountInput) return;
 
-  const yesInputs =
-    yesFields?.querySelectorAll("input, select, textarea") || [];
-
-  if (value === "Si") {
-    if (yesFields) {
-      yesFields.classList.remove("d-none");
-    }
-
-    yesInputs.forEach((el) => {
-      el.disabled = false;
-    });
-
-    if (guestsInput) {
-      guestsInput.required = true;
-
-      if (!guestsInput.value || Number(guestsInput.value) < 1) {
-        guestsInput.value = "1";
-      }
-    }
+  if (childrenMenuInput.value === "Si") {
+    childrenCountGroup.classList.remove("hidden-field");
+    childrenCountInput.required = true;
   } else {
-    if (yesFields) {
-      yesFields.classList.add("d-none");
-    }
-
-    yesInputs.forEach((el) => {
-      el.disabled = true;
-      el.required = false;
-    });
-
-    resetIntolerances();
+    childrenCountGroup.classList.add("hidden-field");
+    childrenCountInput.required = false;
+    childrenCountInput.value = "";
   }
 }
 
-attendanceButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    setAttendance(btn.dataset.value);
-  });
-});
+function updateAttendanceVisibility() {
+  if (!attendanceInput || !adultGuestsGroup || !adultGuestsInput) return;
 
-if (hasIntolerances && intolerancesWrapper) {
-  hasIntolerances.addEventListener("change", function () {
-    if (this.checked) {
-      intolerancesWrapper.classList.remove("d-none");
-    } else {
-      intolerancesWrapper.classList.add("d-none");
-
-      document
-        .querySelectorAll('input[name="intolerances"]')
-        .forEach((checkbox) => {
-          checkbox.checked = false;
-        });
-    }
-  });
+  if (attendanceInput.value === "No") {
+    adultGuestsGroup.classList.add("hidden-field");
+    adultGuestsInput.required = false;
+    adultGuestsInput.value = "";
+  } else {
+    adultGuestsGroup.classList.remove("hidden-field");
+    adultGuestsInput.required = true;
+  }
 }
 
-if (rsvpForm && formMessage) {
-  rsvpForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
+async function submitForm(event) {
+  event.preventDefault();
 
-    formMessage.textContent = "Invio in corso...";
+  if (!rsvpForm) return;
 
-    const formData = new FormData(rsvpForm);
-    const turnstileToken =
-      formData.get("cf-turnstile-response")?.toString().trim() || "";
+  const fullName = document.getElementById("fullName")?.value.trim() || "";
+  const attendance = attendanceInput?.value || "";
+  const adultGuests =
+    attendance === "Si" ? Number(adultGuestsInput?.value || 0) : 0;
+  const childrenMenu = childrenMenuInput?.value || "";
+  const childrenCount =
+    childrenMenu === "Si" ? Number(childrenCountInput?.value || 0) : 0;
+  const foodNotes = document.getElementById("foodNotes")?.value.trim() || "";
 
-    const attendance = attendanceInput?.value?.trim() || "";
-    const fullName = formData.get("fullName")?.toString().trim() || "";
-    const phone = formData.get("phone")?.toString().trim() || "";
+  if (!fullName) {
+    showFormMessage("Inserisci il nome e cognome famiglia.", "is-error");
+    return;
+  }
 
-    if (!attendance) {
-      formMessage.textContent = "Seleziona se parteciperai.";
-      return;
+  if (!attendance) {
+    showFormMessage("Seleziona se parteciperai.", "is-error");
+    return;
+  }
+
+  if (attendance === "Si" && !adultGuests) {
+    showFormMessage("Seleziona quanti adulti sarete.", "is-error");
+    return;
+  }
+
+  if (!childrenMenu) {
+    showFormMessage("Seleziona se ci saranno bambini.", "is-error");
+    return;
+  }
+
+  if (childrenMenu === "Si" && !childrenCount) {
+    showFormMessage("Seleziona il numero di bambini.", "is-error");
+    return;
+  }
+
+  const payload = {
+    fullName,
+    attendance,
+    adultGuests,
+    childrenMenu,
+    childrenCount,
+    foodNotes,
+  };
+
+  const submitButton = document.getElementById("submitFormBtn");
+
+  try {
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Invio...";
     }
 
-    if (!fullName) {
-      formMessage.textContent = "Inserisci nome e cognome.";
-      return;
-    }
+    showFormMessage("");
 
-    if (!phone) {
-      formMessage.textContent = "Inserisci il numero di telefono.";
-      return;
-    }
-
-    if (!/^\d{10}$/.test(phone)) {
-      formMessage.textContent =
-        "Il numero di telefono deve contenere esattamente 10 cifre.";
-      return;
-    }
-
-    const payload = {
-      fullName,
-      phone,
-      attendance,
-      guests: attendance === "Si" ? Number(formData.get("guests") || 1) : 0,
-      intolerances:
-        attendance === "Si" && hasIntolerances?.checked
-          ? formData.getAll("intolerances")
-          : [],
-      turnstileToken,
-    };
-
-    if (!payload.turnstileToken) {
-      formMessage.textContent = "Completa la verifica anti-bot.";
-      return;
-    }
-
-    try {
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      let data = {};
-      try {
-        data = await response.json();
-      } catch {
-        data = {};
-      }
-
-      if (!response.ok || !data.ok) {
-        throw new Error(data.error || "Errore durante il salvataggio");
-      }
-
-      formMessage.textContent = "Conferma inviata correttamente.";
-      rsvpForm.reset();
-
-      if (attendanceInput) {
-        attendanceInput.value = "";
-      }
-
-      if (commonFields) {
-        commonFields.classList.add("d-none");
-      }
-
-      if (yesFields) {
-        yesFields.classList.add("d-none");
-      }
-
-      if (intolerancesWrapper) {
-        intolerancesWrapper.classList.add("d-none");
-      }
-
-      if (yesFields) {
-        yesFields.querySelectorAll("input, select, textarea").forEach((el) => {
-          el.disabled = false;
-          el.required = false;
-        });
-      }
-
-      resetIntolerances();
-      attendanceButtons.forEach((btn) => btn.classList.remove("active"));
-
-      if (window.turnstile) {
-        window.turnstile.reset();
-      }
-    } catch (error) {
-      formMessage.textContent =
-        error.message || "Errore inatteso durante l'invio.";
-
-      if (window.turnstile) {
-        window.turnstile.reset();
-      }
-    }
-  });
-}
-
-/* =========================
-   APERTURA INVITO
-   ========================= */
-if (sealButton && introEnvelope && invitationIntro && siteContent) {
-  sealButton.addEventListener("click", () => {
-    siteContent.classList.remove("hidden-before-open");
-    siteContent.classList.add("visible");
-
-    requestAnimationFrame(() => {
-      introEnvelope.classList.add("opened");
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
     });
+
+    const data = await response.json().catch(() => null);
+
+    if (!response.ok || !data?.ok) {
+      throw new Error(data?.error || "Invio non riuscito.");
+    }
+
+    if (formContent && successMsg) {
+      formContent.style.display = "none";
+      successMsg.classList.add("show");
+    }
+
+    rsvpForm.reset();
+    updateAttendanceVisibility();
+    updateChildrenVisibility();
+
+    setTimeout(() => {
+      closeModal();
+      resetSuccessState();
+      showFormMessage("");
+    }, 3000);
+  } catch (error) {
+    showFormMessage(
+      error.message || "Si è verificato un errore. Riprova.",
+      "is-error",
+    );
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = "Conferma la presenza";
+    }
+  }
+}
+
+if (invitationIntro && introEnvelope && sealButton && siteContent) {
+  sealButton.addEventListener("click", () => {
+    if (
+      introEnvelope.classList.contains("is-opening") ||
+      introEnvelope.classList.contains("is-zooming")
+    ) {
+      return;
+    }
+
+    window.scrollTo(0, 0);
+
+    introEnvelope.classList.add("is-opening");
+
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      siteContent.classList.remove("hidden-before-open");
+      siteContent.classList.add("visible");
+      updateCountdown();
+    }, 900);
+
+    setTimeout(() => {
+      introEnvelope.classList.add("is-zooming");
+    }, 1220);
 
     setTimeout(() => {
       invitationIntro.classList.add("hide");
-    }, 520);
+      window.scrollTo(0, 0);
+    }, 1900);
   });
 }
 
-/* =========================
-   POPUP IBAN
-   ========================= */
-if (giftToggle && ibanPopup) {
-  giftToggle.addEventListener("click", (event) => {
-    event.stopPropagation();
-    ibanPopup.classList.toggle("d-none");
-  });
+if (coordToggle) {
+  coordToggle.addEventListener("click", toggleCoord);
+}
 
-  ibanPopup.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
-
-  document.addEventListener("click", () => {
-    ibanPopup.classList.add("d-none");
+if (openModalBtn) {
+  openModalBtn.addEventListener("click", () => {
+    resetSuccessState();
+    openModal();
   });
 }
 
-if (copyIbanBtn && ibanValue && ibanCopyFeedback) {
-  copyIbanBtn.addEventListener("click", async (event) => {
-    event.stopPropagation();
+if (modalCloseBtn) {
+  modalCloseBtn.addEventListener("click", closeModal);
+}
 
-    try {
-      await navigator.clipboard.writeText(ibanValue.textContent.trim());
-      ibanCopyFeedback.classList.add("visible");
+if (attendanceInput) {
+  attendanceInput.addEventListener("change", updateAttendanceVisibility);
+}
 
-      setTimeout(() => {
-        ibanCopyFeedback.classList.remove("visible");
-      }, 1400);
-    } catch (error) {
-      ibanCopyFeedback.textContent = "Errore copia";
-      ibanCopyFeedback.classList.add("visible");
+if (childrenMenuInput) {
+  childrenMenuInput.addEventListener("change", updateChildrenVisibility);
+}
 
-      setTimeout(() => {
-        ibanCopyFeedback.textContent = "Copiato!";
-        ibanCopyFeedback.classList.remove("visible");
-      }, 1400);
+if (rsvpForm) {
+  rsvpForm.addEventListener("submit", submitForm);
+}
+
+if (modalOverlay) {
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) {
+      closeModal();
     }
+  });
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modalOverlay?.classList.contains("open")) {
+    closeModal();
+  }
+});
+
+updateAttendanceVisibility();
+updateChildrenVisibility();
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+const sections = ["hero", "dettagli", "programma", "regalo", "conferma"];
+const navLinks = document.querySelectorAll("#main-nav a");
+
+if ("IntersectionObserver" in window && navLinks.length) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((a) => a.classList.remove("active"));
+          const link = document.querySelector(
+            `#main-nav a[href="#${entry.target.id}"]`,
+          );
+          if (link) link.classList.add("active");
+        }
+      });
+    },
+    { threshold: 0.4 },
+  );
+
+  sections.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
   });
 }
