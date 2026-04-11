@@ -36,10 +36,12 @@ body {
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
 }
+
 html,
 body {
   scroll-behavior: auto;
 }
+
 /* INTRO */
 
 .invitation-intro {
@@ -53,7 +55,12 @@ body {
       rgba(255, 255, 255, 0.06) 22%,
       rgba(0, 0, 0, 0) 48%
     ),
-    linear-gradient(180deg, #e8ddd1 0%, #d9cbbb 100%);
+    linear-gradient(
+      180deg,
+      rgba(232, 221, 209, 0.72) 0%,
+      rgba(217, 203, 187, 0.72) 100%
+    ),
+    url("assets/sfondo_lettera.jpg") center center / cover no-repeat;
   transition:
     opacity 0.8s ease,
     visibility 0.8s ease;
@@ -78,7 +85,7 @@ body {
 .envelope-shell {
   position: relative;
   width: min(72vw, 360px);
-  aspect-ratio: 405 / 675;
+  aspect-ratio: 405 / 580;
   transform-style: preserve-3d;
   will-change: transform, opacity;
   overflow: hidden;
@@ -354,7 +361,7 @@ body {
   left: 56.5%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: min(28vw, 120px);
+  width: min(32vw, 135px);
   border: none;
   background: transparent;
   padding: 0;
@@ -1137,7 +1144,7 @@ body {
   }
 
   .seal-button {
-    width: min(30vw, 110px);
+    width: min(34vw, 125px);
   }
 }
 
@@ -1146,6 +1153,7 @@ body {
     padding: 4px 20px;
   }
 }
+
 @media (max-height: 700px) {
   .modal {
     max-height: calc(100vh - 20px);
