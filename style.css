@@ -170,12 +170,13 @@ body {
   justify-content: center;
   text-align: center;
   background:
+    linear-gradient(rgba(240, 237, 232, 0.62), rgba(236, 234, 228, 0.72)),
     radial-gradient(
       circle at top,
-      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.35) 0%,
       rgba(255, 255, 255, 0) 55%
     ),
-    linear-gradient(180deg, #f0ede8 0%, #eceae4 100%);
+    url("assets/sfondo_1.jpeg") center center / cover no-repeat;
 }
 
 .preview-hero-tag {
@@ -184,6 +185,7 @@ body {
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--text-light);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
 }
 
 .preview-hero-name {
@@ -193,6 +195,7 @@ body {
   font-style: italic;
   color: var(--text);
   line-height: 1.02;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
 }
 
 .preview-hero-amp {
@@ -201,6 +204,7 @@ body {
   font-style: italic;
   color: var(--gold);
   margin: 4px 0;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.25);
 }
 
 .preview-hero-date {
@@ -209,6 +213,7 @@ body {
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--text-light);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
 }
 
 .preview-countdown {
@@ -233,6 +238,7 @@ body {
   line-height: 1;
   min-width: 2ch;
   text-align: center;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
 }
 
 .preview-cd-label {
@@ -241,6 +247,7 @@ body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-light);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
 }
 
 /* LEMBI */
@@ -602,14 +609,24 @@ body {
 /* HERO */
 
 #hero {
+  max-width: none;
+  width: 100%;
+  margin: 0;
   min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding: 40px 28px;
+  background:
+    linear-gradient(rgba(240, 237, 232, 0.7), rgba(236, 234, 228, 0.78)),
+    radial-gradient(
+      circle at top,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0) 55%
+    ),
+    url("assets/sfondo_1.jpeg") center center / cover no-repeat;
 }
 
 .hero-tag {
@@ -618,6 +635,7 @@ body {
   text-transform: uppercase;
   color: var(--text-light);
   margin-bottom: 24px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
 }
 
 .hero-name {
@@ -627,6 +645,7 @@ body {
   font-style: italic;
   color: var(--text);
   line-height: 1.05;
+  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.28);
 }
 
 .hero-amp {
@@ -635,6 +654,7 @@ body {
   font-style: italic;
   color: var(--gold);
   margin: 6px 0;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.24);
 }
 
 .hero-date {
@@ -644,6 +664,7 @@ body {
   color: var(--text-light);
   margin-top: 28px;
   margin-bottom: 48px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
 }
 
 .countdown {
@@ -651,6 +672,7 @@ body {
   gap: 0;
   width: 100%;
   justify-content: center;
+  max-width: 480px;
 }
 
 .cd-unit {
@@ -668,6 +690,7 @@ body {
   line-height: 1;
   min-width: 2ch;
   text-align: center;
+  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.28);
 }
 
 .cd-label {
@@ -676,6 +699,7 @@ body {
   text-transform: uppercase;
   color: var(--text-light);
   margin-top: 6px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
 }
 
 /* DETTAGLI */
